@@ -46,7 +46,7 @@
       padding: 0 1.5rem;
     }
 
-    /* HEADER & LOGO AJUSTADO */
+    /* HEADER & LOGO */
     .header {
       background: #FFFFFF;
       padding: 2rem 1rem 1.6rem;
@@ -269,7 +269,7 @@
       gap: 0.4rem;
     }
 
-    /* MODAL NATIVO DIALOG */
+    /* MODAL NATIVO */
     .native-modal {
       border: none;
       border-radius: 20px;
@@ -374,6 +374,7 @@
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      background-color: #eee;
     }
 
     .gallery-item img {
@@ -381,6 +382,7 @@
       height: 100%;
       object-fit: cover;
       transition: var(--transition);
+      display: block;
     }
 
     .gallery-item:hover img {
@@ -626,7 +628,6 @@
 </head>
 <body>
 
-  <!-- Encabezado con Logo Giratorio tipo Moneda 360 -->
   <header class="header">
     <div class="header-container">
       <div class="logo-wrapper">
@@ -639,7 +640,6 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-content">
       <span class="badge">Todo en un solo lugar</span>
@@ -648,7 +648,6 @@
     </div>
   </section>
 
-  <!-- Sección de Servicios Principales -->
   <main class="services-section">
     <div class="container">
       <div class="section-title">
@@ -657,7 +656,6 @@
       </div>
 
       <div class="cards-grid">
-        <!-- Servicio 1: Salones -->
         <article class="service-card" onclick="mostrarServicio('salones')">
           <div class="card-img-wrap">
             <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Salones para eventos" class="card-img">
@@ -670,7 +668,6 @@
           </div>
         </article>
 
-        <!-- Servicio 2: Decoración -->
         <article class="service-card" onclick="mostrarServicio('decoracion')">
           <div class="card-img-wrap">
             <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Decoración de eventos" class="card-img">
@@ -683,7 +680,6 @@
           </div>
         </article>
 
-        <!-- Servicio 3: Música -->
         <article class="service-card" onclick="mostrarServicio('musica')">
           <div class="card-img-wrap">
             <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80" alt="Música y sonido en vivo" class="card-img">
@@ -696,7 +692,6 @@
           </div>
         </article>
 
-        <!-- Servicio 4: Fotografía -->
         <article class="service-card" onclick="mostrarServicio('fotografia')">
           <div class="card-img-wrap">
             <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80" alt="Fotografía y filmación profesional" class="card-img">
@@ -712,7 +707,7 @@
     </div>
   </main>
 
-  <!-- Ventana Modal Desplegable Nativa -->
+  <!-- Modal Nativo Dialog -->
   <dialog id="serviceModal" class="native-modal">
     <div class="modal-box-inner">
       <button class="modal-close-btn" onclick="cerrarVentana()">&times;</button>
@@ -823,8 +818,8 @@
         tag: "Espacios Verificados",
         gallery: [
           { url: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80", caption: "Salón de Gala Colonial" },
-          { url: "https://images.unsplash.com/photo-1545232979-fbf6c1642127?auto=format&fit=crop&w=600&q=80", caption: "Hacienda Campestre Tolima" },
-          { url: "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=600&q=80", caption: "Terraza & Jardín de Eventos" }
+          { url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80", caption: "Hacienda Campestre Tolima" },
+          { url: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80", caption: "Terraza & Jardín de Eventos" }
         ],
         promo: "<strong>¿Por qué elegir salones con EventLife?</strong> Evitas cobros ocultos por descorche o cargos sorpresa. Te conectamos con recintos verificados en Ibagué y zonas campestres que cuentan con vías de acceso transitables, planta eléctrica de emergencia y permisos de operación al día.",
         specs: [
@@ -917,7 +912,7 @@
 
       document.getElementById('modalGallery').innerHTML = item.gallery.map(img => `
         <div class="gallery-item">
-          <img src="${img.url}" alt="${img.caption}">
+          <img src="${img.url}" alt="${img.caption}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80';">
           <div class="gallery-caption">${img.caption}</div>
         </div>
       `).join('');
